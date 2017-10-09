@@ -2,7 +2,7 @@ $(document).ready(main);
 
 function main(){
   $('#genBut').on('click', generate);
-  $('.colorLine').on('click', '#changeColor', toggleColor);
+  $('.container').on('click', '#changeColor', toggleColor);
 }
 
 var backColor = 0;
@@ -20,5 +20,11 @@ function generate(){
 
 
 function toggleColor(){
-  alert('yelll!');
+  if (backColor === 'rgb(255, 0, 0)'){
+    $(this).closest('.colorLine').css('background-color', 'yellow');
+    backColor = $('.colorLine').css('background-color');
+  } else {
+    $(this).closest('.colorLine').css('background-color', 'red');
+    backColor = $('.colorLine').css('background-color');
+  } return backColor;
 }
