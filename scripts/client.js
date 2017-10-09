@@ -3,6 +3,7 @@ $(document).ready(main);
 function main(){
   $('#genBut').on('click', generate);
   $('.container').on('click', '#changeColor', toggleColor);
+  $('.container').on('click', '#deleteLine', removeLine);
 }
 
 var backColor = 0;
@@ -21,10 +22,14 @@ function generate(){
 
 function toggleColor(){
   if (backColor === 'rgb(255, 0, 0)'){
-    $(this).closest('.colorLine').css('background-color', 'yellow');
+    $(this).parent('.colorLine').css('background-color', 'yellow');
     backColor = $('.colorLine').css('background-color');
   } else {
-    $(this).closest('.colorLine').css('background-color', 'red');
+    $(this).parent('.colorLine').css('background-color', 'red');
     backColor = $('.colorLine').css('background-color');
   } return backColor;
+}
+
+function removeLine(){
+  $(this).closest('.colorLine').remove();
 }
